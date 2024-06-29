@@ -1,0 +1,10 @@
+@mixin res($max){
+    @media(max-width: $max){
+        @content
+    }
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+}

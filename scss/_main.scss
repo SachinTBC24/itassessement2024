@@ -1,0 +1,479 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+
+    @include res(468px) {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+}
+
+h4 {
+    font-size: 20px;
+
+    @include res(468px) {
+        font-size: 15px;
+    }
+}
+
+h6 {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+p {
+    font-size: 16px;
+    color: $color3;
+    margin: 15px 0 20px 0;
+
+    @include res(468px) {
+        font-size: 13px;
+    }
+}
+
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+body {
+    width: 100%;
+}
+
+button.global {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+/* Header CSS*/
+header {
+    @include flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: $color;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    @include res(468px) {
+        padding: 10px 30px;
+    }
+}
+
+.navbar {
+    @include flex;
+    justify-content: center;
+    align-items: center;
+
+    @include res(790px) {
+        @include flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: $color;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+
+        &.active {
+            right: 0px;
+        }
+
+        li {
+            margin-bottom: 25px;
+        }
+
+        .close {
+            display: initial;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: $color3;
+            font-size: 24px
+        }
+
+        .lg-bag {
+            display: none;
+        }
+    }
+
+    li {
+        list-style-type: none;
+        padding: 0 20px;
+        position: relative;
+
+        a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: $color3;
+            transition: 0.3s ease;
+
+            &:hover,
+            &.active {
+                color: $color4;
+            }
+
+            &.active::after,
+            &:hover::after {
+                content: "";
+                width: 30%;
+                height: 2px;
+                background: $color4;
+                position: absolute;
+                bottom: -4px;
+                left: 20px;
+            }
+        }
+
+    }
+}
+
+.close {
+    display: none;
+}
+
+
+.hamnav {
+    display: none;
+
+    @include res(790px) {
+        display: flex;
+        align-items: center;
+
+        i {
+            color: $color3;
+            font-size: 24px;
+            padding-left: 20px;
+        }
+    }
+}
+
+/* Home Page */
+.banner {
+    background: $color;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    padding: 0 80px;
+    @include flex;
+    align-items: center;
+
+    @include res(790px) {
+        height: auto;
+        padding: 0 80px;
+        background-position: top 30% right 30%;
+        display: block;
+        margin: auto;
+
+        .banner-left {
+            padding: 25px 0;
+            text-align: center;
+            margin: auto;
+            align-items: center;
+            width: 100%;
+
+            button {
+                margin: auto;
+            }
+        }
+
+        img {
+            display: none;
+        }
+    }
+
+    @include res(468px) {
+        padding: 0;
+    }
+
+    .banner-left {
+        width: 50%;
+
+        h4 {
+            padding-bottom: 15px;
+            color: $color2;
+        }
+
+        h2 {
+            color: $color3;
+        }
+
+        p {
+            color: $color2;
+        }
+
+        button {
+            background: $color2;
+            color: $color3;
+            text-align: center;
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 24px;
+            border: 3px solid $color2;
+            cursor: pointer;
+            transition-duration: 400ms;
+
+            &:hover {
+                color: $color2;
+                background: $color3;
+                border-color: $color3;
+            }
+        }
+    }
+}
+
+.products {
+    text-align: center;
+    background: $color3;
+
+    h2 {
+        color: $color4;
+
+        span {
+            color: $color2;
+        }
+    }
+
+    p {
+        color: $color;
+    }
+
+    .pro {
+        width: 23%;
+        min-width: 250px;
+        padding: 10px 12px;
+        background: $color;
+        border: 1px solid $color;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+        margin: 15px 0;
+        transition: 0.2s ease;
+        position: relative;
+
+        @include res(790px) {
+            margin: 15px;
+        }
+
+        @include res(468px) {
+            width: 100%;
+        }
+
+        &:hover {
+            box-shadow: 0px 0px 30px rgba(246, 244, 244, 0.764);
+        }
+
+        img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .description {
+            text-align: start;
+            padding: 10px 0;
+
+            span {
+                color: $color2;
+                font-size: 12px;
+            }
+
+            h5 {
+                padding-top: 7px;
+                color: $color3;
+                font-size: 14px;
+            }
+
+            i {
+                font-size: 12px;
+                color: rgb(230, 180, 25);
+            }
+
+            h4 {
+                padding-top: 7px;
+                font-size: 15px;
+                font-weight: 700;
+                color: $color3;
+            }
+        }
+
+        .cart {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50px;
+            background: #dadada;
+            color: $color3;
+            border: 1px solid $color;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+
+        }
+    }
+}
+
+.pro-container {
+    @include flex;
+    padding-top: 20px;
+    flex-wrap: wrap;
+
+    @include res(790px) {
+        justify-content: center
+    }
+}
+
+.newsletters {
+    @include flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: $color3;
+
+    @include res(468px) {
+    padding: 40px 20px;}
+
+    h4 {
+        font-size: 22px;
+        font-weight: 700;
+        color: $color2;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        color: $color;
+
+        span {
+            color: $color4;
+        }
+    }
+
+    .form {
+        display: flex;
+        width: 40%;
+
+        @include res(790px) {
+            width: 70%;
+        }
+
+        @include res(468px) {
+            width: 100%;
+        }
+
+    }
+
+    input {
+        height: 3.125rem;
+        padding: 0 1.25em;
+        font-size: 14px;
+        width: 100%;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        outline: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    button {
+        background-color: $color4;
+        white-space: nowrap;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+/* Footer */
+footer {
+    @include flex;
+    flex-wrap: wrap;
+    padding: 10px 80px;
+    background: $color;
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+
+        .logo {
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 14px;
+            padding-bottom: 20px;
+        }
+
+        p {
+            font-size: 13px;
+            margin: 0 0 8px 0;
+        }
+
+        a {
+            font-size: 13px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            color: $color3;
+
+            &:hover {
+                color: $color4;
+            }
+        }
+
+        .follow {
+            margin-top: 20px;
+
+            .icon {
+                i {
+                    color: $color3;
+                    padding-right: 4px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $color4;
+                    }
+                }
+            }
+        }
+
+        img {
+            margin: 10px 0 15px 0;
+        }
+    }
+
+    .copyright {
+        width: 100%;
+        text-align: center;
+    }
+}
